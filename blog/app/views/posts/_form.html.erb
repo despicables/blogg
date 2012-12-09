@@ -1,0 +1,13 @@
+<%= form_for @post do |p| %>
+  <div>
+    <%= p.label :title %><br />
+    <%= p.text_field :title %>
+  </div>
+  <div>
+    <%= p.label :description %><br />
+    <%= p.text_area :description %>
+  </div>
+  <div >
+    <%= p.submit "Share"%>
+  </div>
+<% end %>
