@@ -2,11 +2,12 @@
 <p><%= link_to("New Post",new_post_path)%></p>
 <% @posts.sort.each do |post|%>
 	<h2><u><%= post.title %></u></h2>
-	<p>
-		<%= time_ago_in_words post.created_at %> ago
-	</p>
+	
 	<p>
 		<%= truncate post.description %>
 		<%= link_to("Read more...",post_path(post.id)) %>
+	</p>
+	<p>
+		<i><%= time_ago_in_words post.created_at %> ago</i>
 	</p>
 <% end %>

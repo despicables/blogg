@@ -5,8 +5,9 @@
 
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
-	<p><%= comment.body %>&nbsp 
-	<%= time_ago_in_words comment.created_at %> ago </p>
+	<p><i><%= comment.body %></i>&nbsp
+		<b> by   <%= comment.commenter %></b>&nbsp 
+	(<%= time_ago_in_words comment.created_at %> ago )</p>
 	<%= link_to("Delete",[@post,comment],:method => :delete, :confirm => "Are you sure?") %>
 
 
@@ -14,6 +15,7 @@
 
 <%= form_for [@post,@post.comments.build] do |c|%>
 	<p> <%= c.text_area :body, :size => '25x3' %></p>
+	<p> <%= c.label :commenter %></p><%= c.text_field :commenter %>
 	<p> <%= c.submit "Post comment" %></p>
 <% end %>
 
